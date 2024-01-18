@@ -43,7 +43,7 @@ const Productlist = ({ data }) => {
                 <div key={index} className="flex">
                   <div className="flex justify-center">
                     <img
-                      src={`http://localhost:5000/images/${item.imagePath[0]}`}
+                      src={`https://product-managment-server.vercel.app/images/${item.imagePath[0]}`}
                       className=" w-[150px] md:w-[290px] h-[200px] md:h-[300px] mt-5 ml-5 object-contain md:object-cover cursor-pointer"
                       alt="laptop"
                     />
