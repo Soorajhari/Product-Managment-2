@@ -2,6 +2,7 @@ const productModel = require("../model/productSchema");
 
 const addProduct = async (req, res) => {
   try {
+    console.log("checking")
     const {
       ProductName,
       category,
