@@ -10,7 +10,18 @@ const app = express();
 const port = process.env.PORT || 8080;
 console.log(port);
 
-app.use(cors());
+
+
+
+const corsOptions = {
+  origin: 'https://product-managment-client.vercel.app/',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
