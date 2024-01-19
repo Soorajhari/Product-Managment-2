@@ -92,7 +92,7 @@ const Productlist = ({ data }) => {
           ))}
         </div>
         <div className="flex gap-x-4 justify-between mt-10 mr-12 ml-16">
-          <p className="text-base text-gray-500">10 of 456 items</p>
+          <p className="text-sm md:text-base text-balance text-gray-500">10 of 456 items</p>
           <ReactPaginate
             pageCount={pageNumber}
             onPageChange={handlePageClick}
@@ -108,7 +108,7 @@ const Productlist = ({ data }) => {
             activeLinkClassName="active"
           />
 
-          <p>
+          <p className="text-sm md:text-base">
             Show <span className="text-yellow-600">10 rows</span>
           </p>
         </div>
