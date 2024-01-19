@@ -50,18 +50,25 @@ const addProduct = async (req, res) => {
 
 const filterProducts = async (req, res) => {
   try {
-    const filters = req.body.categories.map(
-      (category) => new RegExp(category, "i")
-    );
-    const searchedProducts = await productModel
-      .find({ Subsubcategory: { $in: filters } })
-      .exec();
-    res.json({ status: "ok", filterData: searchedProducts });
+    if (req.body.categories.length > 0) {
+      const filters = req.body.categories.map(
+        (category) => new RegExp(category, "i")
+      );
+      const searchedProducts = await productModel
+        .find({ Subsubcategory: { $in: filters } })
+        .exec();
+      res.json({ status: "ok", filterData: searchedProducts });
+    } else {
+      const allProducts = await productModel.find()
+      console.log(allProducts)
+      res.json({ status: "ok", filterData: allProducts });
+    }
   } catch (error) {
     console.log(error.message);
     res.json({ status: "error", message: "error occurred" });
   }
 };
+
 
 const getProduct = async (req, res) => {
   try {
