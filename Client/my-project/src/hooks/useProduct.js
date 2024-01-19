@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import useFetch from "./useFetch";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import instance from "../utils/axios";
 
 const useProduct = (initialValues) => {
   const navigate = useNavigate();
