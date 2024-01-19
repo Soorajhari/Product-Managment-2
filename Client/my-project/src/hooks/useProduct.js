@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import useFetch from "./useFetch";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import instance from "../utils/axios";
 
 const useProduct = (initialValues) => {
   const navigate = useNavigate();
@@ -61,8 +62,8 @@ const useProduct = (initialValues) => {
       return;
     }
     try {
-      const response = await axios.post(
-        "https://product-managment-server.vercel.app//product",
+      const response = await instance.post(
+        "/product",
         formData
       );
       console.log(response.data);
