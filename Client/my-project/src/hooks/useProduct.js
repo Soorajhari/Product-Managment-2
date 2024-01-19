@@ -45,6 +45,7 @@ const useProduct = (initialValues) => {
     formData.append("total", values.total);
     formData.append("description", values.description);
     formData.append("Subsubcategory", values.Subsubcategory);
+     console.log(values.ProductName,values.category, values.price,values.subCategory,values.total,values.description,values.Subsubcategory)
 
     selectedFiles.forEach((file, index) => {
       console.log(`File ${index}:`, file);

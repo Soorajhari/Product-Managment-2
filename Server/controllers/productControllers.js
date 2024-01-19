@@ -11,15 +11,15 @@ const addProduct = async (req, res) => {
       description,
       Subsubcategory,
     } = req.body;
-    // console.log(
-    //   ProductName,
-    //   category,
-    //   price,
-    //   subCategory,
-    //   total,
-    //   description,
-    //   Subsubcategory
-    // );
+    console.log(
+      ProductName,
+      category,
+      price,
+      subCategory,
+      total,
+      description,
+      Subsubcategory
+    );
     const images = req.files;
     console.log(images);
     const imagePaths = [];
