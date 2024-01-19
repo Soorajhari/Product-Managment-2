@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import instance from "../utils/axios";
+import { useNavigate } from "react-router-dom";
 
 const useProductfetch = () => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [selectedSubcategories, setSelectedSubcategories] = useState([]);
   const [search, setSearch] = useState("");
-
+  const navigate = useNavigate();
   const fetchProductData = async () => {
     try {
       const response = await instance.get("/get-product");
@@ -46,6 +47,38 @@ const useProductfetch = () => {
       console.log(error.message);
     }
   };
+
+  const handleValueSubmit = async (e, checkedValue) => {
+    e.preventDefault();
+
+    const updateCategoriesPromises = Object.entries(checkedValue).map(
+      async ([name, isChecked]) => {
+        let updatedCategories;
+        if (isChecked) {
+          updatedCategories = [...selectedSubcategories, name];
+        } else {
+          updatedCategories = selectedSubcategories.filter(
+            (category) => category !== name
+          );
+        }
+        setSelectedSubcategories(updatedCategories);
+
+        const body = {
+          updatedCategories,
+        };
+
+        const response = await instance.post("/filterdata", body);
+        console.log(response.data);
+        setData(response.data.filterData);
+      }
+    );
+    await Promise.all(updateCategoriesPromises);
+    navigate("/");
+  };
+
+  console.log(data.filterData);
+
+
   const handleSearch = (values) => {
     setSearch(values);
   };
@@ -69,6 +102,7 @@ const useProductfetch = () => {
     handleCheckboxChange,
     handleSearch,
     handleSearchSubmit,
+    handleValueSubmit,
   };
 };
 

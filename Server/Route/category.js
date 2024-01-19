@@ -9,6 +9,7 @@ Router.get("/get-category", categoryController.getCategory);
 Router.get("/get-product", productController.getProduct);
 Router.post("/product", multer.array("file", 2), productController.addProduct);
 Router.post("/filter", productController.filterProducts);
+Router.post("/filterdata", productController.filterProductData);
 Router.post("/search", productController.Search);
 
 module.exports = Router;

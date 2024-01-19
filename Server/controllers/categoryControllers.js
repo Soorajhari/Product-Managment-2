@@ -57,7 +57,7 @@ const addCategory = async (req, res) => {
 const getCategory = async (req, res) => {
   try {
     const categoryData = await categoryModel.find();
-    console.log(categoryData);
+    // console.log(categoryData);
     res.json({ status: "ok", data: categoryData });
   } catch (error) {
     console.log(error.message);

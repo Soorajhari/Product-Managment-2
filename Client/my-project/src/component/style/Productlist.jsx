@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import "./Product.css";
+import CategoryMobile from "./CategoryMobile";
 
 const Productlist = ({ data }) => {
   const [pageNumber, setPageNumber] = useState(0);
@@ -22,6 +23,8 @@ const Productlist = ({ data }) => {
     <>
       {/* <div className=""> */}
       <div className="flex justify-center md:justify-end mt-10 gap-x-5  ">
+       
+       
         <Link to="/add-category">
           <button className="p-2 bg-[#3081D0] w-[90px] md:w-[130px] h-[40px] md:h-[50px] rounded-md  md:rounded-2xl text-white text-xs md:text-lg">
             Add Category
@@ -92,7 +95,7 @@ const Productlist = ({ data }) => {
           ))}
         </div>
         <div className="flex gap-x-4 justify-between mt-10 mr-12 ml-16">
-          <p className="text-sm md:text-base text-balance text-gray-500">10 of 456 items</p>
+          <p className="text-sm md:text-base text-balance text-gray-500 hidden md:block">10 of 456 items</p>
           <ReactPaginate
             pageCount={pageNumber}
             onPageChange={handlePageClick}
@@ -108,10 +111,17 @@ const Productlist = ({ data }) => {
             activeLinkClassName="active"
           />
 
-          <p className="text-sm md:text-base">
+          <p className="text-sm md:text-base hidden md:block">
             Show <span className="text-yellow-600">10 rows</span>
           </p>
         </div>
+        <div className="sticky bottom-0 z-10 block md:hidden">
+          <Link to="/category">
+          <button  className="bg-gray-300 p-2 w-full h-[40px] text-semibold text-lg" onClick={() => handlePageClick()}>Filter</button>
+          </Link>
+         
+        </div>
+        
       </div>
       {/* </div> */}
     </>
