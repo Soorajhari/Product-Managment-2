@@ -65,11 +65,6 @@ const useProduct = (initialValues) => {
       const response = await axios.post(
         "https://product-managment-server.vercel.app/product",
         formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
       );
       
       console.log(response.data);
