@@ -36,15 +36,15 @@ const Productlist = ({ data }) => {
       </div>
 
       <div className="flex-col items-end">
-        <div className="flex gap-10 flex-wrap mt-12 mr-16 ml-16  ">
+        <div className="flex gap-10 flex-wrap mt-12 mr-16 ml-16 ">
           {currentItems.map((item, index) => (
             <div className="flex  ">
-              <div className="border border-none shadow-lg w-[250px] md:w-[500px] h-[300px] md:h-[400px] rounded-xl overflow-hidden">
+              <div className="border border-none shadow-lg w-[250px] md:w-[400px] h-[300px] md:h-[340px] rounded-xl overflow-hidden">
                 <div key={index} className="flex">
                   <div className="flex justify-center">
                     <img
                       src={`https://product-managment-server.vercel.app/images/${item.imagePath[0]}`}
-                      className=" w-[150px] md:w-[290px] h-[200px] md:h-[300px] mt-5 ml-5 object-contain md:object-cover cursor-pointer"
+                      className=" w-[150px] md:w-[220px] h-[180px] md:h-[300px] mt-5 ml-5 object-contain md:object-cover cursor-pointer"
                       alt="laptop"
                     />
                   </div>
