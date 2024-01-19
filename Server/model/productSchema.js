@@ -35,7 +35,7 @@ const productSchema = mongoose.Schema({
   },
   imagePath: {
     type: [String],
-    required: true,
+   
   },
 });
 

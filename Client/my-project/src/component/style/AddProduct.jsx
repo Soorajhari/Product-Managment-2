@@ -183,7 +183,7 @@ const AddProduct = () => {
                 name="files"
                 placeholder=""
                 accept=".jpg,.png"
-                required
+                      
                 onChange={(e) => handleFileChange(e)}
                 multiple
               />
