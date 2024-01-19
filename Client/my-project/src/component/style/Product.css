@@ -1,27 +1,38 @@
-.pagination{
+/* Default styling for larger screens */
+.pagination {
     list-style: none;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 5rem;
     font-size: 1.2rem;
-    gap:5px
+    gap: 5px;
 }
 
-.pagination .page-cum{
+.pagination .page-cum {
     padding: 8px 15px;
     cursor: pointer;
     border-radius: 3px;
     font-weight: 400;
-
 }
 
-.pagination .page-cum:hover{
-    background-color:#EDA415;
-    color:#fff
-
-}
-.pagination .active{
-    background-color:#EDA415;
+.pagination .page-cum:hover {
+    background-color: #EDA415;
+    color: #fff;
 }
 
+.pagination .active {
+    background-color: #EDA415;
+}
+
+
+@media (max-width: 768px) {
+    .pagination {
+        flex-wrap: wrap; 
+        gap: 10px;
+    }
+
+    .pagination .page-cum {
+        padding: 6px 12px; 
+    }
+}

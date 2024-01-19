@@ -47,7 +47,7 @@ const Category = ({ handleCheckboxChange }) => {
                     {expandedItems[index] &&
                       item.subcategories.map((subcategory, subIndex) => (
                         <div key={subIndex} className="">
-                          <li>{subcategory.name}</li>
+                          <li className="text-base text-gray-400">{subcategory.name}</li>
                           <div
                             className="ml-12"
                             onClick={() =>
