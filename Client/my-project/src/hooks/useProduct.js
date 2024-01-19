@@ -64,9 +64,8 @@ const useProduct = (initialValues) => {
     try {
       const response = await axios.post(
         "https://product-managment-server.vercel.app/product",
-        formData,
+        formData
       );
-      
       console.log(response.data);
       resetForm();
       if (response.data.status == "ok") {
