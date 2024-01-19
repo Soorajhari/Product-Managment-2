@@ -62,7 +62,7 @@ const useProduct = (initialValues) => {
     }
     try {
       const response = await axios.post(
-        "https://product-managment-server.vercel.app/product",
+        "http://localhost:5000/product",
         formData
       );
       console.log(response.data);
