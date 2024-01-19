@@ -18,7 +18,7 @@ export const Home = () => {
           <Category handleCheckboxChange={handleCheckboxChange} />
         </div>
 
-        <div className="ml-0 md:ml-40">
+        <div className="ml-0 md:ml-36">
           <Productlist data={data} />
         </div>
       </div>

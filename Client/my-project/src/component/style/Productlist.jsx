@@ -39,7 +39,7 @@ const Productlist = ({ data }) => {
         <div className="flex gap-10 flex-wrap mt-12 mr-16 ml-16 ">
           {currentItems.map((item, index) => (
             <div className="flex  ">
-              <div className="border border-none shadow-lg w-[250px] md:w-[400px] h-[300px] md:h-[340px] rounded-xl overflow-hidden">
+              <div className="border border-none shadow-lg w-[250px] md:w-[430px] h-[300px] md:h-[340px] rounded-xl overflow-hidden">
                 <div key={index} className="flex">
                   <div className="flex justify-center">
                     <img
@@ -50,21 +50,21 @@ const Productlist = ({ data }) => {
                   </div>
 
                   <div className="p-2 mt-8 ml-2">
-                    <p className="font-bold  text-center text-base md:text-xl text-blue-600">
+                    <p className="font-bold  text-center text-base md:text-lg text-blue-600">
                       {item.ProductName}
                     </p>
                     <div className="flex justify-between mt-4">
-                      <p className="font-medium text-sm md:text-lg">
+                      <p className="font-medium text-sm md:text-base">
                         {item.category}
                       </p>
                     </div>
                     <div className="flex justify-between mt-4">
-                      <p className="font-medium text-sm md:text-lg">
+                      <p className="font-medium text-sm md:text-base">
                         Price:{"$" + item.price}
                       </p>
                     </div>
                     <div className="flex justify-between mt-4">
-                      <p className="font-medium text-sm md:text-lg">
+                      <p className="font-medium text-sm md:text-base">
                         Stocks:{item.total}
                       </p>
                     </div>
