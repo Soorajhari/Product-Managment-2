@@ -5,7 +5,7 @@ const Nav = ({ handleSearch, handleSearchSubmit }) => {
     <>
       <div className="bg-[#3081D0]">
         {/* {error && <Error error={error} />} */}
-        <div className=" w-[80%] md:w-[75%] mx-0 md:mx-auto h-[90px] mt-4 flex items-center justify-between">
+        <div className=" w-[80%] md:w-[75%] mx-0 md:mx-auto h-[70px] mt-4 flex items-center justify-between">
           <div className="w-full">
             <div className="flex items-center justify-center">
               <div className="bg-white w-[180px] md:w-[280px] p-2 rounded relative">
