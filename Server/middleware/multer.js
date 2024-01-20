@@ -4,26 +4,38 @@ const aws=require("aws-sdk")
 const multers3=require("multer-s3")
 
 
-aws.config.update({
-  secretAccessKey: 'gQntRaXuVhzyDnsVVQr0Kq7FaEwXq7vI/01KuKbH',
-  accessKeyId: 'AKIAQQG7SHE77Q3X4O4W',
-  region: 'ap-south-1'
-});
+const multer = require("multer")
+const path=require('path')
+const aws=require("aws-sdk")
+const multers3=require("multer-s3")
 
-const s3 = new aws.S3();
-
-const upload = multer({
-  storage: multers3({
-    s3: s3,
-    bucket: 'prdouctmanagment',
-    acl: 'public-read', // this is optional and can be set to "private" or other permissions
-    metadata: function (req, file, cb) {
-      cb(null, {fieldName: file.fieldname});
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, "public/images");
     },
-    key: function (req, file, cb) {
-      cb(null, `${Date.now().toString()}_${file.originalname}`);
-    }
-  })
-});
+    filename: (req, file, cb) => {
+      const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+      cb(null, file.fieldname + "-" + uniqueSuffix + file.originalname);
+    },
+  });
+  
+  const upload = multer({
+    storage: storage,
+    limits: {
+      fileSize: 20 * 1024 * 1024,
+    },
+    fileFilter: (req, file, cb) => {
+      const filetypes = /jpeg|jpg|png|avif/;
+      const extname = filetypes.test(
+        path.extname(file.originalname).toLowerCase()
+      );
+      const mimetype = filetypes.test(file.mimetype);
+      if (mimetype && extname) {
+        return cb(null, true);
+      } else {
+        return cb(new Error("Only JPEG, JPG, PNG, and WEBP files are allowed"));
+      }
+    },
+  });
 
 module.exports=upload

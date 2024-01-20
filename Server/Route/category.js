@@ -7,7 +7,7 @@ const productController = require("../controllers/productControllers");
 Router.post("/add-category", categoryController.addCategory);
 Router.get("/get-category", categoryController.getCategory);
 Router.get("/get-product", productController.getProduct);
-Router.post("/product", multer.single("file"), productController.addProduct);
+Router.post("/product", multer.array("file",1), productController.addProduct);
 Router.post("/filter", productController.filterProducts);
 Router.post("/filterdata", productController.filterProductData);
 Router.post("/search", productController.Search);
