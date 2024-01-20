@@ -4,10 +4,6 @@ const aws=require("aws-sdk")
 const multers3=require("multer-s3")
 
 
-const multer = require("multer")
-const path=require('path')
-const aws=require("aws-sdk")
-const multers3=require("multer-s3")
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
